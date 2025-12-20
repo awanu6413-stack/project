@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>iPhone Calculator</title>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #4d7cff, #4bd3ff);
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .calculator {
+        width: 340px;
+        background: black;
+        border-radius: 40px;
+        padding: 25px;
+        box-shadow: 0 25px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    .screen {
+        height: 120px;
+        color: white;
+        font-size: 58px;
+        text-align: right;
+        padding: 20px;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+    }
+
+    .btn {
+        height: 70px;
+        border-radius: 50%;
+        background: #333;
+        color: white;
+        font-size: 28px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+        cursor: pointer;
+        transition: 0.15s;
+    }
+
+    .btn:active {
+        transform: scale(0.90);
+        filter: brightness(1.2);
+    }
+
+    .btn.light {
+        background: #a5a5a5;
+        color: black;
+    }
+
+    .btn.orange {
+        background: #ff9f0a;
+    }
+
+    .btn.zero {
+        grid-column: span 2;
+        border-radius: 40px;
+        justify-content: flex-start;
+        padding-left: 30px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="calculator">
+    <div class="screen" id="screen">0</div>
+
+    <div class="buttons">
+        <div class="btn light" data-action="ac">AC</div>
+        <div class="btn light" data-action="sign">±</div>
+        <div class="btn light" data-action="percent">%</div>
+        <div class="btn orange" data-action="operator" data-op="divide">÷</div>
+
+        <div class="btn" data-num="7">7</div>
+        <div class="btn" data-num="8">8</div>
+        <div class="btn" data-num="9">9</div>
+        <div class="btn orange" data-action="operator" data-op="multiply">×</div>
+
+        <div class="btn" data-num="4">4</div>
+        <div class="btn" data-num="5">5</div>
+        <div class="btn" data-num="6">6</div>
+        <div class="btn orange" data-action="operator" data-op="subtract">−</div>
+
+        <div class="btn" data-num="1">1</div>
+        <div class="btn" data-num="2">2</div>
+        <div class="btn" data-num="3">3</div>
+        <div class="btn orange" data-action="operator" data-op="add">+</div>
+
+        <div class="btn zero" data-num="0">0</div>
+        <div class="btn" data-num=".">.</div>
+        <div class="btn orange" data-action="equals">=</div>
+    </div>
+</div>
+
+<script>
+    const screen = document.getElementById("screen");
+
+    let firstValue = null;
+    let operator = null;
+    let waitingForSecondValue = false;
+
+    function inputNumber(num) {
+        if (waitingForSecondValue) {
+            screen.textContent = num;
+            waitingForSecondValue = false;
+        } else {
+            if (screen.textContent === "0") {
+                screen.textContent = num;
+            } else {
+                screen.textContent += num;
+            }
+        }
+    }
+
+    function inputOperator(op) {
+        const currentValue = parseFloat(screen.textContent);
+
+        if (firstValue === null) {
+            firstValue = currentValue;
+        } else if (operator) {
+            const result = calculate(firstValue, currentValue, operator);
+            screen.textContent = result;
+            firstValue = result;
+        }
+
+        operator = op;
+        waitingForSecondValue = true;
+    }
+
+    function calculate(a, b, op) {
+        switch (op) {
+            case "add": return a + b;
+            case "subtract": return a - b;
+            case "multiply": return a * b;
+            case "divide": return b !== 0 ? a / b : "Error";
+            default: return b;
+        }
+    }
+
+    function clearAll() {
+        screen.textContent = "0";
+        firstValue = null;
+        operator = null;
+        waitingForSecondValue = false;
+    }
+
+    function toggleSign() {
+        screen.textContent = String(parseFloat(screen.textContent) * -1);
+    }
+
+    function percent() {
+        screen.textContent = String(parseFloat(screen.textContent) / 100);
+    }
+
+    document.querySelectorAll(".btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            if (btn.dataset.num !== undefined) {
+                inputNumber(btn.dataset.num);
+                return;
+            }
+
+            if (btn.dataset.action === "ac") {
+                clearAll();
+                return;
+            }
+
+            if (btn.dataset.action === "sign") {
+                toggleSign();
+                return;
+            }
+
+            if (btn.dataset.action === "percent") {
+                percent();
+                return;
+            }
+
+            if (btn.dataset.action === "operator") {
+                inputOperator(btn.dataset.op);
+                return;
+            }
+
+            if (btn.dataset.action === "equals") {
+                if (operator !== null) {
+                    const result = calculate(
+                        firstValue,
+                        parseFloat(screen.textContent),
+                        operator
+                    );
+                    screen.textContent = result;
+                    firstValue = null;
+                    operator = null;
+                    waitingForSecondValue = false;
+                }
+                return;
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
