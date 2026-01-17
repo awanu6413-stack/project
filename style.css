@@ -1,0 +1,37 @@
+.nav-link{
+    display: flex;
+    justify-content: center;
+}
+#d-t{
+    width: 90px;
+}
+.abc{
+    border: none !important;
+}
+nav{
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1 !important;
+}
+td, th{
+border: 3px solid black !important;
+}
+.font{
+    font-weight: 500;
+}
+
+.f{
+    font-size: xx-large !important;
+}
+
+ .apply-btn {
+      background: linear-gradient(90deg, #4b3df5, #8f4bff);
+      border-radius: 25px;
+      color: #fff !important;
+      padding: 8px 20px;
+    }
+    .nav-link.active {
+      background: #eef1ff;
+      border-radius: 10px;
+      color: #4b3df5 !important;
+    }

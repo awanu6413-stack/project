@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <img src="https://academyalmustafa.netlify.app/assets/logo-Cu5aXvUH.png" width="45">
+      <div>
+        <strong class="text-primary">USMAN AWAN</strong><br>
+        <small>Excellence in  Developing</small>
+      </div>
+    </a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-3">
+        <li class="nav-item"><a class="nav-link  active" href="./index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link " href="./about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="./gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link " href="">Contact</a></li>
+      </ul>
+      <a href="./login.html" class="apply-btn text-decoration-none">Log In</a>
+    </div>
+  </div>
+</nav>
+
+
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(120deg, #fff7ef, #fff);
+    }
+
+    .hero {
+      /* min-height: 100vh; */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 10%;
+      /* gap: 40px; */
+    }
+
+    .hero-content {
+      max-width: 520px;
+    }
+
+    .hero-content h1 {
+      font-size: 52px;
+      line-height: 1.2;
+      color: #111827;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 span {
+      color: #1d4ed8;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      color: #4b5563;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .hero-content button {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .hero-content button:hover {
+      background: #1e40af;
+    }
+
+    /* Right image section */
+    .hero-image {
+      position: relative;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+ 
+
+    .hero-image img {
+      width: 320px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 50%;
+      z-index: 1;
+      background: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-content h1 {
+        font-size: 40px;
+      }
+    }
+  </style>
+
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>
+        Building Skills <br />
+        <span>For a Successful</span> <br />
+        <span>Future.</span>
+      </h1>
+
+      <p>
+        We help students build practical digital skills, boost confidence,
+        and grow with hands-on learning in a supportive environment.
+      </p>
+
+      <button>Get Started Today →</button>
+    </div>
+
+    <div class="hero-image">
+      <!-- Replace image path -->
+      <img src="./About2-CsXIKLH7.jfif" alt="Training Session">
+    </div>
+  </section>
+
+
+  <style>
+    body {
+      background-color: #f5f9ff;
+    }
+    .section-title span {
+      color: #0d6efd;
+    }
+    .course-card {
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      padding: 30px;
+      height: 100%;
+    }
+    .icon-box {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .icon-blue { background: #e7f1ff; color: #0d6efd; }
+    .icon-green { background: #e6fff5; color: #20c997; }
+    .icon-orange { background: #fff0e6; color: #fd7e14; }
+  </style>
+</head>
+<body>
+
+<section class="py-5">
+  <div class="container text-center">
+
+    <p class="text-primary fw-semibold mb-2">COURSE CATEGORIES</p>
+    <h1 class="fw-bold section-title mb-5">
+      Popular Courses <span>To Learn</span>
+    </h1>
+
+    <div class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-md-4">
+        <div class="card course-card text-start">
+          <div class="icon-box icon-blue">
+            <i class="bi bi-code-slash"></i>
+          </div>
+          <h5 class="fw-bold">Web Development Basics</h5>
+          <p class="text-muted">
+            Building modern and responsive websites
+          </p>
+          <a href="#" class="text-primary fw-semibold text-decoration-none">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4">
+        <div class="card course-card text-start">
+          <div class="icon-box icon-green">
+            <i class="bi bi-braces"></i>
+          </div>
+          <h5 class="fw-bold">Modern Web Development (MERN)</h5>
+          <p class="text-muted">
+            MERN-stack development with MongoDB, Express, React, and Node.js
+          </p>
+          <a href="#" class="text-success fw-semibold text-decoration-none">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4">
+        <div class="card course-card text-start">
+          <div class="icon-box icon-orange">
+            <i class="bi bi-microsoft"></i>
+          </div>
+          <h5 class="fw-bold">Microsoft Office</h5>
+          <p class="text-muted">
+            Microsoft Word, Excel, PowerPoint, and more
+          </p>
+          <a href="#" class="text-warning fw-semibold text-decoration-none">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="mt-5">
+      <a href="#" class="btn btn-primary btn-lg px-4">
+        View All Courses <i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</html>
